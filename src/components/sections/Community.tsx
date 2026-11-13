@@ -19,10 +19,10 @@ const item = {
 
 export function Community() {
   const { t } = useI18n();
-  const cards = t.community.cards.map((c) => ({
-    ...c,
-    href: site.social[c.key],
-  }));
+  // Un réseau dont l'URL n'est pas renseignée dans site.ts n'est pas affiché.
+  const cards = t.community.cards
+    .map((c) => ({ ...c, href: site.social[c.key] }))
+    .filter((c) => c.href !== "");
 
   return (
     <section id="communaute" className="bg-tyv-navy py-20 text-white sm:py-28">
@@ -48,13 +48,13 @@ export function Community() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-14 grid gap-6 sm:grid-cols-3"
+          className="mt-14 flex flex-wrap justify-center gap-6"
         >
           {cards.map((c) => (
             <motion.div
               key={c.key}
               variants={item}
-              className="flex flex-col rounded-3xl bg-white/5 p-8 ring-1 ring-white/10 transition-colors hover:bg-white/10"
+              className="flex w-full flex-col rounded-3xl bg-white/5 p-8 ring-1 ring-white/10 transition-colors hover:bg-white/10 sm:w-[calc((100%-3rem)/3)]"
             >
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-2xl bg-tyv-sky/20 text-tyv-sky-light">

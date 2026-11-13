@@ -37,11 +37,15 @@ export const site = {
   author: "Eudess", // directeur de la publication
   builder: { name: "WebSeeVision", url: "https://webseevision.com" },
 
-  // Réseaux sociaux
+  // Réseaux sociaux. Une URL vide ("") masque le réseau partout sur le site
+  // (pied de page + section communauté). À renseigner avec l'URL officielle
+  // du compte, par exemple "https://www.instagram.com/<compte>/".
+  // Vérifié le 2026-11-13 : les anciennes adresses Instagram (@tyv.off) et
+  // TikTok (@tyv.off) renvoyaient « profil / compte introuvable ».
   social: {
-    instagram: "https://www.instagram.com/tyv.off/",
+    instagram: "",
     facebook: "https://www.facebook.com/profile.php?id=61590820102705",
-    tiktok: "https://www.tiktok.com/@tyv.off?is_from_webapp=1&sender_device=pc",
+    tiktok: "",
   },
 } as const;
 

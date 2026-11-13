@@ -20,9 +20,12 @@ export type SocialKey = keyof typeof SOCIAL_PATHS;
  */
 export const socialLinks = (
   whatsappMessage?: string,
-): { key: SocialKey; label: string; href: string }[] => [
-  { key: "instagram", label: "Instagram", href: site.social.instagram },
-  { key: "facebook", label: "Facebook", href: site.social.facebook },
-  { key: "tiktok", label: "TikTok", href: site.social.tiktok },
-  { key: "whatsapp", label: "WhatsApp", href: whatsappLink(whatsappMessage) },
-];
+): { key: SocialKey; label: string; href: string }[] => {
+  const links: { key: SocialKey; label: string; href: string }[] = [
+    { key: "instagram", label: "Instagram", href: site.social.instagram },
+    { key: "facebook", label: "Facebook", href: site.social.facebook },
+    { key: "tiktok", label: "TikTok", href: site.social.tiktok },
+    { key: "whatsapp", label: "WhatsApp", href: whatsappLink(whatsappMessage) },
+  ];
+  return links.filter((link) => link.href !== "");
+};

@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Charte graphique TYV ─────────────────────────── */
+  --color-tyv-navy: #1b2e5e;
+  --color-tyv-navy-light: #2a4180;
+  --color-tyv-sky: #5b9bd5;
+  --color-tyv-sky-light: #8bbce6;
+  --color-tyv-white: #ffffff;
+  --color-tyv-bg: #f8faff;
+  --color-tyv-text: #1a1a1a;
+  --color-tyv-muted: #555555;
+
+  /* ── Typographie ──────────────────────────────────── */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-dmsans), system-ui, sans-serif;
+
+  /* ── Animations ───────────────────────────────────── */
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-tyv-white);
+  color: var(--color-tyv-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Évite le zoom iOS au focus des champs */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Textes justifiés : césure automatique pour éviter les gros espaces
+   entre les mots sur mobile (colonnes étroites). La langue vient de
+   l'attribut lang (fr sur "/", en sur "/en"). */
+.text-justify {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Focus visible cohérent (WCAG AA) */
+:focus-visible {
+  outline: 2px solid var(--color-tyv-sky);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-tyv-sky);
+  color: var(--color-tyv-white);
+}
+
+/* ── Avion animé (section Packs) ───────────────────────
+   Tout en transform → animation compositée, pas de layout. */
+@keyframes tyv-plane-x {
+  from {
+    transform: translateX(-56px);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+/* z-index discret : 2 s devant les cards, 2 s derrière */
+@keyframes tyv-plane-z {
+  0%,
+  49.9% {
+    z-index: 30;
+  }
+  50%,
+  100% {
+    z-index: 1;
+  }
+}
+@keyframes tyv-plane-wave {
+  0% {
+    transform: translateY(0) rotate(7deg);
+  }
+  25% {
+    transform: translateY(-24px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(7deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(7deg);
+  }
+}
+
+.tyv-plane-track {
+  animation:
+    tyv-plane-x 22s linear infinite,
+    tyv-plane-z 4s step-end infinite;
+  will-change: transform;
+}
+.tyv-plane-wave {
+  animation: tyv-plane-wave 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+/* Traînée pointillée qui s'efface vers l'arrière */
+.tyv-plane-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 105%;
+  width: 52px;
+  height: 2px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    to left,
+    var(--color-tyv-sky) 0 4px,
+    transparent 4px 9px
+  );
+  -webkit-mask: linear-gradient(to left, #000, transparent);
+  mask: linear-gradient(to left, #000, transparent);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tyv-plane-track,
+  .tyv-plane-wave {
+    animation: none;
+  }
+}
+
+/* ── Vague de transition (bas section Stats) ─────────── */
+@keyframes tyv-wave-sway {
+  0%,
+  100% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(2%);
+  }
+}
+.tyv-wave {
+  animation: tyv-wave-sway 6s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tyv-wave {
+    animation: none;
+    transform: translateX(0);
+  }
+}

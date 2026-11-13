@@ -107,7 +107,7 @@ export function Navbar() {
         </Link>
 
         {/* Liens desktop */}
-        <ul className="hidden items-center gap-5 xl:gap-7 lg:flex">
+        <ul className="hidden items-center gap-5 xl:gap-7 xl:flex">
           {links.map((link) => (
             <li key={link.id}>
               <Link href={link.url} className={navLinkClass}>
@@ -118,7 +118,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden shrink-0 items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <LangSwitch />
           <Button
             href={NAVBAR_CALENDLY}
@@ -132,7 +132,7 @@ export function Navbar() {
         </div>
 
         {/* Sélecteur de langue + burger mobile */}
-        <div className="flex shrink-0 items-center gap-3 lg:hidden">
+        <div className="flex shrink-0 items-center gap-3 xl:hidden">
           <LangSwitch />
           <button
             type="button"
@@ -168,7 +168,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden bg-tyv-navy lg:hidden"
+            className="overflow-hidden bg-tyv-navy xl:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 pb-6 pt-2">
               {links.map((link) => (

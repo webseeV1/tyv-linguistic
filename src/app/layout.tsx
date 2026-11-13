@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title:
     "TYV — Séjours Linguistiques au Ghana | Linguistic Travel & Study Programs",
   description:
-    "Séjours linguistiques immersifs au Ghana pour francophones. Billet, logement, activités — tout inclus. Packs 1, 3 et 12 mois. Sur mesure et accompagné.",
+    "Séjours linguistiques immersifs au Ghana pour francophones. Billet, logement, activités — tout inclus. Séjours de 3, 6 ou 12 mois, sur mesure et accompagnés.",
   keywords: [
     "séjour linguistique Ghana",
     "apprendre anglais Ghana",

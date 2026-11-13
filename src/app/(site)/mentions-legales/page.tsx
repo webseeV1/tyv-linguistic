@@ -29,7 +29,8 @@ function Section({
   );
 }
 
-// TODO: compléter avec les informations légales réelles de la société.
+// Note : TYV doit compléter cette page avec ses informations légales réelles
+// (raison sociale, forme juridique, immatriculation) avant mise en conformité.
 export default function MentionsLegalesPage() {
   return (
     <div className="bg-white">

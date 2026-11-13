@@ -15,7 +15,7 @@ const jsonLd = {
   name: "TYV Linguistic Travel & Study Programs",
   description: "Agence de voyages linguistiques immersifs au Ghana",
   url: site.url,
-  areaServed: "Afrique de l'Ouest",
+  areaServed: ["Côte d'Ivoire", "Ghana"],
   serviceType: "Séjours linguistiques immersifs",
 };
 

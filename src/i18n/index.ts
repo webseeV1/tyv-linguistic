@@ -3,9 +3,6 @@ import { en } from "./en";
 
 export type Locale = "fr" | "en";
 
-export const locales: Locale[] = ["fr", "en"];
-export const defaultLocale: Locale = "fr";
-
 export const dictionaries: Record<Locale, Dict> = { fr, en };
 
 /** Déduit la langue depuis le chemin : `/en` et `/en/...` → anglais. */

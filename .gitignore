@@ -30,11 +30,16 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files (secrets : jamais versionnés — seul .env.example l'est)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# éditeurs / outils locaux
+.idea/
+.vscode/
 
 # typescript
 *.tsbuildinfo

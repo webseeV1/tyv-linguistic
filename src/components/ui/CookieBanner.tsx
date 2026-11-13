@@ -11,7 +11,10 @@ export function CookieBanner() {
   const { t } = useI18n();
 
   useEffect(() => {
-    // Affiché uniquement si aucun choix n'a encore été enregistré.
+    // Affiché uniquement si aucun choix n'a encore été enregistré. Le choix
+    // vit dans localStorage (inaccessible au rendu serveur) : on ne peut le lire
+    // qu'après le montage, d'où le setState dans l'effet.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (getConsent() === null) setVisible(true);
   }, []);
 
